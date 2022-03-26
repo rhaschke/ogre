@@ -256,6 +256,12 @@ void ProgressiveMeshGenerator::addIndexDataImpl(IndexType* iPos, const IndexType
 		addTriangleToEdges(tri);
 	}
 }
+template void ProgressiveMeshGenerator::addIndexDataImpl<unsigned short>(unsigned short* iPos, const unsigned short* iEnd,
+                                                VertexLookupList& lookup,
+                                                unsigned short submeshID);
+template void ProgressiveMeshGenerator::addIndexDataImpl<unsigned int>(unsigned int* iPos, const unsigned int* iEnd,
+                                                VertexLookupList& lookup,
+                                                unsigned short submeshID);
 
 void ProgressiveMeshGenerator::addIndexData(IndexData* indexData, bool useSharedVertexLookup, unsigned short submeshID)
 {
