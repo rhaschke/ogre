@@ -551,8 +551,8 @@ namespace Ogre {
 
 			mGeometryProgram->getGLSLProgram()->attachToProgramObject(mGLHandle);
 
+#if 0 // glProgramParameteriEXT() is NULL for Mesa driver!
 			//Don't set adjacency flag. We handle it internally and expose "false"
-
 			RenderOperation::OperationType inputOperationType = mGeometryProgram->getGLSLProgram()->getInputOperationType();
 			glProgramParameteriEXT(mGLHandle, GL_GEOMETRY_INPUT_TYPE_EXT,
 				getGLGeometryInputPrimitiveType(inputOperationType, mGeometryProgram->isAdjacencyInfoRequired()));
@@ -564,6 +564,7 @@ namespace Ogre {
 
 			glProgramParameteriEXT(mGLHandle, GL_GEOMETRY_VERTICES_OUT_EXT,
 				mGeometryProgram->getGLSLProgram()->getMaxOutputVertices());
+#endif
 		}
 
 		if (mFragmentProgram)
